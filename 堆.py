@@ -34,8 +34,9 @@ class heap:
             arr[0] = arr[tick]
             arr[tick] = help
             self.heapify(arr,0,tick)
-
+'''
 test = heap()
 arr = [1,5,3,8,9,25,64,7]
 test.heap_sorting(arr,len(arr))
+'''
 
