@@ -28,9 +28,12 @@ class Link:
 
     def append(self,node):
         cur = self.head
-        while cur.next !=None:
-            cur = cur.next
-        cur.next = node
+        if cur == None:
+            self.head = node
+        else:
+            while cur.next !=None:
+                cur = cur.next
+            cur.next = node
 
     def mid(self):
         n_1 = self.head
