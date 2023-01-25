@@ -1,3 +1,4 @@
+#链表
 class Node:
     def __init__(self,ele):
         self.num = ele
