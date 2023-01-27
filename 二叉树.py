@@ -88,7 +88,7 @@ class BFS:
             if tmp.rchild !=None:
                 help.append(tmp.rchild)
 
-#宽度优先
+#宽度优先遍历
 B = BFS(node_1)
 B.bfs()
 
