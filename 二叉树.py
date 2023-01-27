@@ -1,3 +1,6 @@
+#队列
+from collections import deque
+
 class TreeNode():#二叉树节点
     def __init__(self,val,lchild=None,rchild=None):
         self.val=val		#二叉树的节点值
@@ -54,10 +57,6 @@ class Recur:
                 print(tmp.val)
                 head = tmp.rchild
 
-
-
-
-
     def PosOrderunRecur(self):
         print('后序遍历：')
         help = []
@@ -74,6 +73,22 @@ class Recur:
             print(help_2.pop().val)
 
 
-recur = Recur(node_1)
-recur.InorderunRecur()
+class BFS:
+    def __init__(self,head):
+        self.head = head
+    def bfs(self):
+        print('宽度优先遍历')
+        help = deque([])
+        help.append(self.head)
+        while help != deque([]):
+            tmp = help.popleft()
+            print(tmp.val)
+            if tmp.lchild !=None:
+                help.append(tmp.lchild)
+            if tmp.rchild !=None:
+                help.append(tmp.rchild)
+
+#宽度优先
+B = BFS(node_1)
+B.bfs()
 
