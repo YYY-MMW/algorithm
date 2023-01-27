@@ -29,7 +29,7 @@ def PreOrderRecur(head):
 
 #非递归遍历
 class Recur:
-    def __init__(self,head):
+    def __init__(self,head=None):
         self.head = head
 
     def PreOrderunRecur(self):
@@ -72,7 +72,25 @@ class Recur:
         while help_2 !=[]:
             print(help_2.pop().val)
 
+    def isBST(self):
+        help = []
+        head = self.head
+        if head==None:
+            return True
+        preVal = -1
+        while help != [] or head != None:
+            if head != None:
+                help.append(head)
+                head = head.lchild
+            else:
+                tmp = help.pop()
+                if tmp.val<=preVal:
+                    return False
+                preVal = tmp.val
+                head = tmp.rchild
 
+
+#队列
 class BFS:
     def __init__(self,head):
         self.head = head
@@ -87,8 +105,25 @@ class BFS:
                 help.append(tmp.lchild)
             if tmp.rchild !=None:
                 help.append(tmp.rchild)
+    #是否完全二叉树
+    def isFULL(self):
+        isEmpty = False
+        help = deque([])
+        help.append(self.head)
+        while help != deque([]):
+            tmp = help.popleft()
+            if tmp.lchild ==None and tmp.rchild!=None:
+                return False
+            if tmp.lchild !=None and tmp.rchild==None:
+                isEmpty = True
+                help.append(tmp.lchild)
+            if tmp.lchild !=None or tmp.rchild!=None:
+                help.append(tmp.lchild)
+                help.append(tmp.rchild)
+            if isEmpty and(tmp.lchild !=None or tmp.rchild!=None):
+                return False
 
 #宽度优先遍历
 B = BFS(node_1)
-B.bfs()
+out = B.isFULL()
 
