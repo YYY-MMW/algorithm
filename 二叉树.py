@@ -58,7 +58,7 @@ class Recur:
                 head = tmp.rchild
 
     def PosOrderunRecur(self):
-        print('后序遍历：')
+        print('后序遍历： ')
         help = []
         help_2 = []
         help.append(self.head)
